@@ -54,8 +54,15 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Bounce.cs" />
+     <Compile Include="Assets\ButtonManager.cs" />
+     <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\Controller.cs" />
      <Compile Include="Assets\Destroy.cs" />
+     <Compile Include="Assets\FullscreenSprite.cs" />
+     <Compile Include="Assets\GameOverZone.cs" />
+     <Compile Include="Assets\MonsterAI.cs" />
+     <Compile Include="Assets\MonsterController.cs" />
+     <Compile Include="Assets\MonsterMovement.cs" />
      <Compile Include="Assets\SpringBounce.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/pulpan/Unity/DoodleJump/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

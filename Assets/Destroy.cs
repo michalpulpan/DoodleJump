@@ -10,9 +10,47 @@ public class Destroy : MonoBehaviour
     public GameObject springPlatformPrefab;
     private GameObject myPlat;
 
+    public GameObject monsterObject;
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
 
+        if(collision.gameObject.name.StartsWith("platform"))
+        {
+            
+            if (Random.Range(1, 7) == 1)
+            {
+
+                Destroy(collision.gameObject);
+                Instantiate(springPlatformPrefab, new Vector2(Random.Range(-15f, 15f), player.transform.position.y + (16 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
+
+                } else {
+
+                    collision.gameObject.transform.position = new Vector2(Random.Range(-15f, 15f), player.transform.position.y + (16 + Random.Range(0.2f, 1.0f)));
+
+                } 
+        }else if(collision.gameObject.name.StartsWith("spring"))
+        {
+
+            if (Random.Range(1, 7) == 1)
+            {
+                collision.gameObject.transform.position = new Vector2(Random.Range(-15f, 15f), player.transform.position.y + (16 + Random.Range(0.2f, 1.0f)));
+
+            } else {
+
+                Destroy(collision.gameObject);
+                Instantiate(platformPrefab, new Vector2(Random.Range(-15f, 15f), player.transform.position.y + (16 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
+
+            }     
+
+        }
+
+        if(collision.gameObject.name.StartsWith("Monster")){
+            Destroy(collision.gameObject);
+            Instantiate(monsterObject, new Vector2(Random.Range(-15f, 15f), player.transform.position.y + (Random.Range(22, 55))), Quaternion.identity);
+        }
+        
+        /*
         if(Random.Range(1,6)>1)
         {
             myPlat= (GameObject)Instantiate(platformPrefab, new Vector2(Random.Range(-5.5f,5.5f), player.transform.position.y + (16 + Random.Range(0.5f,1f))), Quaternion.identity);
@@ -24,5 +62,9 @@ public class Destroy : MonoBehaviour
          
         }
         Destroy(collision.gameObject);
+
+         */
     }
+
+
 }
