@@ -8,6 +8,10 @@ public class MonsterAI : MonoBehaviour
     public float speed;
     public float targetDistance;
 
+    public MonsterController mController;
+
+    public GameObject destroyer;
+
     //public float xDist,yDist;
     private Transform target;
 
@@ -21,8 +25,8 @@ public class MonsterAI : MonoBehaviour
     void Update()
     {
         //Vector2 distance = new Vector2(xDist,yDist);
-        if(Vector2.Distance(transform.position,target.position)>targetDistance){
+        if(Vector2.Distance(transform.position,target.position)>targetDistance && mController.isActive){
             transform.position = Vector2.MoveTowards(transform.position,target.position,speed*Time.deltaTime);
-        }
+        } 
     }
 }

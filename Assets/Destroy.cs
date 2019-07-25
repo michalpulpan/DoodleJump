@@ -8,6 +8,8 @@ public class Destroy : MonoBehaviour
     public GameObject player;
     public GameObject platformPrefab;
     public GameObject springPlatformPrefab;
+
+    public GameObject oneTimePlatform;
     private GameObject myPlat;
 
     public GameObject monsterObject;
@@ -20,15 +22,19 @@ public class Destroy : MonoBehaviour
             
             if (Random.Range(1, 7) == 1)
             {
+                collision.gameObject.transform.position = new Vector2(Random.Range(-15f, 15f), player.transform.position.y + (16 + Random.Range(0.2f, 1.0f)));
+
+            } else if (Random.Range(1, 7) == 2)
+            {
 
                 Destroy(collision.gameObject);
                 Instantiate(springPlatformPrefab, new Vector2(Random.Range(-15f, 15f), player.transform.position.y + (16 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
 
-                } else {
+            }  else {
+                Destroy(collision.gameObject);
+                Instantiate(platformPrefab, new Vector2(Random.Range(-15f, 15f), player.transform.position.y + (16 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
 
-                    collision.gameObject.transform.position = new Vector2(Random.Range(-15f, 15f), player.transform.position.y + (16 + Random.Range(0.2f, 1.0f)));
-
-                } 
+            }
         }else if(collision.gameObject.name.StartsWith("spring"))
         {
 
@@ -36,12 +42,37 @@ public class Destroy : MonoBehaviour
             {
                 collision.gameObject.transform.position = new Vector2(Random.Range(-15f, 15f), player.transform.position.y + (16 + Random.Range(0.2f, 1.0f)));
 
-            } else {
+            } else if (Random.Range(1, 7) == 2)
+            {
 
+                Destroy(collision.gameObject);
+                Instantiate(oneTimePlatform, new Vector2(Random.Range(-15f, 15f), player.transform.position.y + (16 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
+
+            }  else {
                 Destroy(collision.gameObject);
                 Instantiate(platformPrefab, new Vector2(Random.Range(-15f, 15f), player.transform.position.y + (16 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
 
-            }     
+            }
+
+        }else if(collision.gameObject.name.StartsWith("oneTime"))
+        {
+
+            if (Random.Range(1, 7) == 1)
+            {
+                Destroy(collision.gameObject);
+                Instantiate(oneTimePlatform, new Vector2(Random.Range(-15f, 15f), player.transform.position.y + (16 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
+
+            } else if (Random.Range(1, 7) == 2)
+            {
+
+                Destroy(collision.gameObject);
+                Instantiate(oneTimePlatform, new Vector2(Random.Range(-15f, 15f), player.transform.position.y + (16 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
+
+            }  else {
+                Destroy(collision.gameObject);
+                Instantiate(platformPrefab, new Vector2(Random.Range(-15f, 15f), player.transform.position.y + (16 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
+
+            }  
 
         }
 

@@ -8,17 +8,28 @@ public class MonsterController : MonoBehaviour
 {
 
     public Controller gameController;
+    public Sprite MonsterDead;
+
+    public bool isActive = true;
+
+
     void OnTriggerEnter2D(Collider2D collider)
     {
 
-        if(collider.gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
+        if(collider.gameObject.GetComponent<Rigidbody2D>().velocity.y <= -3 && isActive)
         {
 
             collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 900f);
+            this.GetComponent<SpriteRenderer>().sprite = MonsterDead;
+            var defPostion = transform.position.y;
+            isActive = false;
+           
 
-        } else if(collider.name.StartsWith("player"))
+        } else if(collider.name.StartsWith("player") && isActive)
         {
             SceneManager.LoadScene("GameOver");
+            SoundManagerScript.PlaySound("gameOver");
+
             //gameController.isGameOver = true;
         }
     }

@@ -11,6 +11,7 @@ public class Bounce : MonoBehaviour
         if(collision.gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
         {
 
+            SoundManagerScript.PlaySound("jump");
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 900f);
 
         }

@@ -12,7 +12,7 @@ public class Controller : MonoBehaviour
     public float moveInput;
     private float speed = 10f;
 
-    private float topScore = 0.0f;
+    public static float topScore = 0.0f;
 
     public Text scoreText;
 
@@ -23,6 +23,7 @@ public class Controller : MonoBehaviour
 
     void Start()
     {
+        topScore = 0;
         rigb2d = GetComponent<Rigidbody2D>();
     }
 
@@ -47,6 +48,8 @@ public class Controller : MonoBehaviour
        if(isGameOver == true){
            isGameOver = false;
             SceneManager.LoadScene("GameOver");
+            SoundManagerScript.PlaySound("gameOver");
+
        }
    } 
 

@@ -10,7 +10,7 @@ public class SpringBounce : MonoBehaviour
         
         if(collision.gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
         {
-
+            SoundManagerScript.PlaySound("trampoline");
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 1300f);
 
         }

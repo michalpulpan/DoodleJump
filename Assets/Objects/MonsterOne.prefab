@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   targetDistance: 7
+  mController: {fileID: 8044947739857464082}
 --- !u!1 &8044947739857464105
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,6 +246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
+  MonsterDead: {fileID: 21300000, guid: 0fa4f0496fd2f47deb9c82d0eaccbfb7, type: 3}
+  isActive: 1
 --- !u!251 &8044947739857464083
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -260,7 +263,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 190
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
