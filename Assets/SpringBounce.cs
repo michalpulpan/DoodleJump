@@ -7,7 +7,7 @@ public class SpringBounce : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        //kolize s modrou platofrmou
         if(collision.gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
         {
             SoundManagerScript.PlaySound("trampoline");

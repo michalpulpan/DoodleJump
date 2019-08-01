@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MonsterController : MonoBehaviour
 {
-
+//skript ovládající kolize hráče s příšerou
     public Controller gameController;
     public Sprite MonsterDead;
 
@@ -18,7 +18,7 @@ public class MonsterController : MonoBehaviour
 
         if(collider.gameObject.GetComponent<Rigidbody2D>().velocity.y <= -3 && isActive)
         {
-
+            //odraz od příšery a její zabití
             collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 900f);
             this.GetComponent<SpriteRenderer>().sprite = MonsterDead;
             var defPostion = transform.position.y;
@@ -29,8 +29,6 @@ public class MonsterController : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
             SoundManagerScript.PlaySound("gameOver");
-
-            //gameController.isGameOver = true;
         }
     }
 

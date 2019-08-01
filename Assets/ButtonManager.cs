@@ -15,6 +15,7 @@ public class ButtonManager : MonoBehaviour
 
     public void PauseGame(){
 
+        //zmrazí hru
         if(Time.timeScale == 1){
             Time.timeScale = 0;
             SceneManager.LoadScene("PauseMenu",LoadSceneMode.Additive);
@@ -28,12 +29,14 @@ public class ButtonManager : MonoBehaviour
 
     public void ResumeGame(){
 
+        //rozmrazí hru
         Time.timeScale = 1;
         SceneManager.UnloadScene("PauseMenu");
     }
 
     public void RestartGame(){
 
+        //rozmrazí hru a zapne ji znovu
         Time.timeScale = 1;
         //SceneManager.UnloadScene("PauseMenu");
         SceneManager.LoadScene("Game");

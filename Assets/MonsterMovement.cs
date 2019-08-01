@@ -43,13 +43,11 @@ public class MonsterMovement : MonoBehaviour
         } 
         else if(leftRight == 0){
             
-            //monster.GetComponent<SpriteRenderer>().flipX = false;
 
             monster.transform.Translate(new Vector3(-speed,0,0)*Time.deltaTime);
         }
         else if(leftRight == 1){
                        
-            //monster.GetComponent<SpriteRenderer>().flipX = true;
 
             monster.transform.Translate(new Vector3(speed,0,0)*Time.deltaTime);  
         }

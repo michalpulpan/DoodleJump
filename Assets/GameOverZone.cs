@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameOverZone : MonoBehaviour
 {
+//herní objekt pod obrazovkou, který když přijde do kolize s hráčem, hra skončí
 
     public Controller gameController;
 

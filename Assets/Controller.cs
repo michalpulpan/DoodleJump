@@ -21,7 +21,7 @@ public class Controller : MonoBehaviour
     public ButtonManager btnMngr;
     
 
-    void Start()
+    void Start() //při spuštění
     {
         topScore = 0;
         rigb2d = GetComponent<Rigidbody2D>();
@@ -29,6 +29,7 @@ public class Controller : MonoBehaviour
 
     void Update()
    {
+       //otočení hlavní postavy doleva při stisku šipky
        if(moveInput <0)
        {
            this.GetComponent<SpriteRenderer>().flipX = false;
@@ -38,6 +39,7 @@ public class Controller : MonoBehaviour
            this.GetComponent<SpriteRenderer>().flipX = true;
        }
 
+        //přidání skore
        if (rigb2d.velocity.y > 0 && transform.position.y > topScore){
 
            topScore = transform.position.y;
@@ -55,19 +57,9 @@ public class Controller : MonoBehaviour
 
     void FixedUpdate()
     {
-            //scoreText.transform.position = new Vector2(100f,10f);
+            //pohyb doprava a doleva
             moveInput = Input.GetAxis("Horizontal");
             rigb2d.velocity = new Vector2(moveInput * speed, rigb2d.velocity.y);
-
-
-
     }
 
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.name == "leftColl" || other.gameObject.name == "rightColl"){
-
-            transform.position = new Vector2(transform.position.x/Mathf.Abs(transform.position.x)-transform.position.x,transform.position.y);
-
-        }
-    }
 }
